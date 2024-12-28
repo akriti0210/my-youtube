@@ -12,9 +12,11 @@ const WatchPage = () => {
     console.log(searchParams.get("v"))
 
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(closeMenu())        
-    },[])
+    
+    // useEffect(() => {
+    //     dispatch(closeMenu())        
+    // }, [])
+    
     return (
         <div className=''>
             <div className='p-5 flex'>
