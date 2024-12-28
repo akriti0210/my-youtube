@@ -3,7 +3,7 @@ import { YOUTUBE_API } from '../utils/constants'
 import VideoCard, { AdVideoCard } from './VideoCard'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { closeMenu, toggleMenu } from '../utils/appSlice'
+import { closeMenu } from '../utils/appSlice'
 
 const VideoContainer = () => {
 

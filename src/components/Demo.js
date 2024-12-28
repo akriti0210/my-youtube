@@ -7,7 +7,6 @@ const Demo = () => {
     
     const [isDarkTheme, setIsDarkTheme] = useState(false)
     
-    let x = 0;
     const [y,setY] = useState(0);
     const zRef = useRef(0);
 
