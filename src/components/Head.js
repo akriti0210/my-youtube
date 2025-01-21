@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenu } from '../utils/appSlice';
 import { YOUTUBE_SEARCH_API } from '../utils/constants';
 import { cacheResults } from '../utils/searchSlice';
+import { FaToggleOff, FaToggleOn } from 'react-icons/fa6';
 
 const Head = () => {
 
@@ -15,6 +16,8 @@ const Head = () => {
     const searchCache = useSelector(store => store.search)
     
     const dispatch = useDispatch();
+
+    const [darkMode, setDarkMode] = useState(false)
 
     // searchCache = {
     //     "iphone":["iphone 11","iphone 16"]
@@ -54,6 +57,11 @@ const Head = () => {
 
     const toggleMenuHandler = () => {
         dispatch(toggleMenu())
+    }
+
+    const darkModeHandler = () => {
+        setDarkMode(!darkMode)
+        document.body.classList.toggle("dark")
     }
   return (
     <div className='grid grid-flow-col shadow-lg'>
@@ -98,11 +106,29 @@ const Head = () => {
                     </div>)
                 }
         </div>
-        <div className='col-span-1'>
-            <img className='h-8'
-                alt='user'
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtRs_rWILOMx5-v3aXwJu7LWUhnPceiKvvDg&s'
-            />
+        <div className='flex'>
+            <div className='m-2 pt-4'>
+                <img className='h-10'
+                    alt='user'
+                    src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtRs_rWILOMx5-v3aXwJu7LWUhnPceiKvvDg&s'
+                />
+            </div>
+            <div className='px-2 py-5'>
+                {/* <label class="inline-flex items-center mb-5 cursor-pointer">
+                <input type="checkbox" value="" class="sr-only peer" />
+                <div class="relative w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Dark Mode</span>
+                </label> */}
+                {/* <FaToggleOff className='h-8 w-10' /> */}
+                <button onClick={() => darkModeHandler()}>
+                    {
+                        darkMode && <FaToggleOn size={45} />
+                    }
+                    {
+                        !darkMode && <FaToggleOff size={45} />
+                    }
+                </button>
+            </div>
         </div>
     </div>
   )

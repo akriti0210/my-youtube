@@ -32,7 +32,7 @@ function App() {
 
   return (
     <Provider store={appStore}>
-      <div>
+      <div className='dark:bg-gray-800'>
         <Head />
         <RouterProvider router={appRouter} />
       {/* 
